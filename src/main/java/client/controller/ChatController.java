@@ -28,8 +28,8 @@ import javafx.stage.Stage;
 import messages.ChatMessages;
 import messages.Message;
 import messages.User;
-import messages.bubble.BubbleSpec;
-import messages.bubble.BubbledLabel;
+import client.util.bubble.BubbleSpec;
+import client.util.bubble.BubbledLabel;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package messages.bubble;
+package client.util.bubble;
 
 import javafx.scene.shape.HLineTo;
 import javafx.scene.shape.LineTo;
