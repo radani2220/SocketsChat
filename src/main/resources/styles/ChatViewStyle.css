@@ -1,0 +1,18 @@
+.vbox {
+    -fx-border-color: #2e8b57;
+    -fx-border-width: 2px;
+    -fx-padding: 10;
+    -fx-spacing: 8;
+}
+
+ #buttonSend{
+     -fx-color: #ffffff;
+     -fx-padding: 5px 20px;
+     -fx-background-color: #58098F;
+     -fx-font-family: 'Open Sans', sans-serif;
+     -fx-font-size: 15px;
+     -fx-text-fill: white;
+     cursor: pointer;
+     -fx-opacity: 1;
+ }
+

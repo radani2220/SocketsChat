@@ -1,0 +1,55 @@
+
+.list-view {
+    -fx-background-color: white;
+}
+
+.list-view {
+    -fx-selection-bar:green ;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: #58098F;
+    -fx-text-fill: white;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #58098F;
+}
+
+.list-view .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: white;
+}
+
+.list-view .label {
+    -fx-text-fill: white;
+}
+
+
+.list-cell {
+    -fx-cell-size: 50 ;
+    -fx-animated: true;
+    -fx-padding: 1px;
+}
+
+
+
+#statusList {
+    -fx-box-border: transparent;
+}
+
+
+#listHbox {
+    -fx-background-color: #d5d5d5;
+    -fx-padding: 0.2;
+    -fx-spacing: -2;
+}
+
+#onlineUsersHbox {
+    -fx-border-color: #d5d5d5;
+    -fx-border-width: 1px;
+    -fx-padding: 0.2;
+    -fx-spacing: -2;
+}
+
+

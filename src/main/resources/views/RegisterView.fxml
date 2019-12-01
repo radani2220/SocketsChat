@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="borderPane" maxWidth="350.0" minWidth="350.0" prefHeight="420.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controller.RegisterController" style="-fx-background-color: #58098F;">
+    <right>
+        <GridPane BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="103.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="210.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="103.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="226.0" minHeight="10.0" prefHeight="133.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="126.0" minHeight="12.0" prefHeight="35.0" />
+                <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="127.0" minHeight="0.0" prefHeight="36.0" valignment="CENTER" />
+                <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="47.0" />
+                <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="28.0" />
+                <RowConstraints maxHeight="110.0" minHeight="9.0" prefHeight="11.0" />
+            </rowConstraints>
+            <children>
+                <!--<Button fx:id="BackBtn" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="24.0" maxWidth="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#backPressed" prefHeight="24.0" prefWidth="24.0" stylesheets="@../styles/Login.css">-->
+                    <!--<cursor>-->
+                        <!--<Cursor fx:constant="HAND" />-->
+                    <!--</cursor>-->
+                <!--</Button>-->
+                <TextField fx:id="usernameTextField" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <PasswordField fx:id="passwordTextField" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Button fx:id="registerBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#registerButtonAction" stylesheets="@../styles/Login.css" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <ImageView fitHeight="170" fitWidth="170" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../images/chat_logo_new.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </StackPane>
+
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0">
+                    <children>
+                    <Button fx:id="BackBtn" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="24.0" maxWidth="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#backPressed" prefHeight="24.0" prefWidth="24.0" stylesheets="@../styles/Login.css">
+                        <HBox.margin>
+                            <Insets left="15.0" top="20.0" bottom="15.0"/>
+                        </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+                    </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                    <children>
+
+                        <ImageView fitHeight="22.0" fitWidth="21.0" onMousePressed="#minimizeWindow" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                            <image>
+                                <Image url="@../images/minimize.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets right="15.0" top="15.0" bottom="15.0"/>
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ImageView>
+                        <ImageView fitHeight="22.0" fitWidth="21.0" onMousePressed="#closeSystem" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                            <image>
+                                <Image url="@../images/close.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets top="15.0" bottom="15.0"/>
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ImageView>
+                    </children>
+                    <GridPane.margin>
+                        <Insets right="10.0" top="10.0" />
+                    </GridPane.margin>
+                </HBox>
+            </children>
+        </GridPane>
+    </right>
+</BorderPane>
