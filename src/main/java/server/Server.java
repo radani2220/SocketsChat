@@ -55,7 +55,7 @@ public class Server {
             //Creating the connection with HSQLDB
             databaseConnection = DriverManager.getConnection("jdbc:hsqldb:file:C:\\hsqldb-2.4.1\\hsqldb\\hsqldb\\chat", "SA", "");
             if (databaseConnection != null) {
-                System.out.println("Connection created successfully");
+                System.out.println("Connection to HSQLDB created successfully");
                 Statement statement;
                 try {
                     statement = databaseConnection.createStatement();
@@ -93,8 +93,6 @@ public class Server {
         }
 
         public void run() {
-            logger.info("Attempting to connect a user...");
-            logger.info(clientSocket.toString());
             try {
                 is = clientSocket.getInputStream();
                 input = new ObjectInputStream(is);
@@ -127,12 +125,10 @@ public class Server {
                         if (user.getStatus() == OFFLINE) {
                             this.name = userCredentials.getUsername();
                             user.setStatus(ONLINE);
-                            logger.info(name + " has been added to the list");
 
                             writers.put(name, output);
                             addToList();
                         } else {
-                            logger.error(userCredentials.getUsername() + " is already connected");
                             throw new DuplicateUsernameException(userCredentials.getUsername() + " is already connected");
                         }
                     } else {
@@ -144,7 +140,6 @@ public class Server {
                     while (clientSocket.isConnected()) {
                         Message inputmsg = (Message) input.readObject();
                         if (inputmsg != null) {
-                            logger.info(inputmsg.getType() + " - " + inputmsg.getFrom() + ": " + inputmsg.getMsg());
                             switch (inputmsg.getType()) {
                                 case CONNECTED:
                                     addToList();
@@ -168,11 +163,9 @@ public class Server {
                 }
 
             } catch (SocketException socketException) {
-                logger.error("Socket Exception for user " + name);
             } catch (DuplicateUsernameException duplicateException){
                 logger.error("Duplicate Username : " + name);
             } catch (Exception e){
-                logger.error("Exception in run() method for user: " + name, e);
             } finally {
                 closeConnections();
             }
@@ -307,14 +300,12 @@ public class Server {
         }
 
         private Message removeFromList() throws IOException {
-            logger.debug("removeFromList() method Enter");
             Message msg = new Message();
             msg.setMsg("has left the chat.");
             msg.setType(MessageType.DISCONNECTED);
             msg.setFrom("SERVER");
             msg.setUsers(users);
             write(msg);
-            logger.debug("removeFromList() method Exit");
             return msg;
         }
 
@@ -329,7 +320,6 @@ public class Server {
         }
 
         private void write(Message msg) throws IOException {
-            logger.info(msg.toString());
             if(msg.getTo() == null || msg.getTo().equals("Group")) {
                 msg.setUsers(users);
                 for(Map.Entry<String, ObjectOutputStream> writer : writers.entrySet()) {
@@ -349,14 +339,11 @@ public class Server {
         }
 
         private synchronized void closeConnections()  {
-            logger.debug("closeConnections() method Enter");
             if (user != null){
                 user.setStatus(OFFLINE);
-                logger.info("User object: " + user + " has been removed!");
             }
             if (output != null){
                 writers.remove(name);
-                logger.info("Writer object: " + user + " has been removed!");
             }
             if (is != null){
                 try {
@@ -384,8 +371,6 @@ public class Server {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            logger.info("Writers:" + writers.size() + " usersList size:" + users.size());
-            logger.debug("closeConnections() method Exit");
         }
     }
 }
